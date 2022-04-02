@@ -12,17 +12,7 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'dana'),
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.indigo[800],
-          title: Text(
-            'کیووز کویین',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-        body: HomeWidget(),
-      ),
+      home: HomeWidget(),
     );
   }
 }
