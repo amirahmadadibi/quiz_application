@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:quizz_like_application/constants/Constants.dart';
 
-class QuizPage extends StatelessWidget {
+class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
 
   @override
+  State<QuizPage> createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> {
+  int shownQuestionIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
+    String questionImageIndex =
+        getQuestionsList()[shownQuestionIndex].imageNameNubmer!;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -22,14 +32,14 @@ class QuizPage extends StatelessWidget {
               width: double.infinity,
             ),
             Image(
-              image: AssetImage('images/1.png'),
+              image: AssetImage('images/$questionImageIndex.png'),
               height: 300,
             ),
             SizedBox(
               height: 30,
             ),
             Text(
-              'مشهورترین شعبده‌باز دنیا کیست؟‌',
+              getQuestionsList()[shownQuestionIndex].questionTitle!,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18),
             ),
@@ -41,6 +51,11 @@ class QuizPage extends StatelessWidget {
                 'پاسخ اول',
                 textAlign: TextAlign.end,
               ),
+              onTap: () {
+                setState(() {
+                  shownQuestionIndex = 1;
+                });
+              },
             ),
             ListTile(
               title: Text(
