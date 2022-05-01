@@ -22,7 +22,7 @@ class QuizPage extends StatelessWidget {
               width: double.infinity,
             ),
             Image(
-              image: AssetImage('images/2.png'),
+              image: AssetImage('images/1.png'),
               height: 300,
             ),
             SizedBox(
