@@ -14,6 +14,7 @@ class _QuizPageState extends State<QuizPage> {
   int shownQuestionIndex = 0;
   Qustion? selectedQuestion;
   bool isFinalAnswerSumbited = false;
+  int correctAnswer = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,9 @@ class _QuizPageState extends State<QuizPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => ResultScreen(),
+                      builder: (BuildContext context) => ResultScreen(
+                        correctAnswer: correctAnswer,
+                      ),
                     ),
                   );
                 },
@@ -84,7 +87,7 @@ class _QuizPageState extends State<QuizPage> {
       ),
       onTap: () {
         if (selectedQuestion!.correctAnswer == index) {
-          print('correct');
+          correctAnswer++;
         } else {
           print('wrong');
         }
