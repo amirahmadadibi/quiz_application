@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizz_like_application/constants/Constants.dart';
 import 'package:quizz_like_application/data/Question.dart';
+import 'package:quizz_like_application/screens/result_screen.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
@@ -55,7 +56,14 @@ class _QuizPageState extends State<QuizPage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.red[700], minimumSize: Size(200.0, 50.0)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ResultScreen(),
+                    ),
+                  );
+                },
                 child: Text(
                   'مشاهده نتایج کوییز',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
