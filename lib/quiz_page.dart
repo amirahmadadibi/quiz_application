@@ -24,7 +24,7 @@ class _QuizPageState extends State<QuizPage> {
       appBar: AppBar(
         backgroundColor: Colors.indigo[800],
         title: Text(
-          'کوییز ها',
+          'سوال ${shownQuestionIndex + 1} از ${getQuestionsList().length}',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
