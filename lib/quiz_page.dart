@@ -68,6 +68,12 @@ class _QuizPageState extends State<QuizPage> {
         } else {
           print('wrong');
         }
+
+        setState(() {
+          if (shownQuestionIndex < getQuestionsList().length - 1) {
+            shownQuestionIndex++;
+          }
+        });
       },
     );
   }
