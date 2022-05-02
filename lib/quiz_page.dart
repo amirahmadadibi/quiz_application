@@ -12,6 +12,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   int shownQuestionIndex = 0;
   Qustion? selectedQuestion;
+  bool isFinalAnswerSumbited = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,18 @@ class _QuizPageState extends State<QuizPage> {
             SizedBox(
               height: 30,
             ),
-            ...List.generate(4, (index) => getOptionsItem(index))
+            ...List.generate(4, (index) => getOptionsItem(index)),
+            if (isFinalAnswerSumbited)
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.red[700], minimumSize: Size(200.0, 50.0)),
+                onPressed: () {},
+                child: Text(
+                  'مشاهده نتایج کوییز',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  textAlign: TextAlign.center,
+                ),
+              )
           ],
         ),
       ),
@@ -67,6 +79,10 @@ class _QuizPageState extends State<QuizPage> {
           print('correct');
         } else {
           print('wrong');
+        }
+
+        if (shownQuestionIndex == getQuestionsList().length - 1) {
+          isFinalAnswerSumbited = true;
         }
 
         setState(() {
