@@ -10,6 +10,31 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   int shownQuestionIndex = 0;
+  var list = [
+    ListTile(
+        title: Text(
+      'پاسخ اول',
+      textAlign: TextAlign.end,
+    )),
+    ListTile(
+      title: Text(
+        'پاسخ دوم',
+        textAlign: TextAlign.end,
+      ),
+    ),
+    ListTile(
+      title: Text(
+        'پاسخ سوم',
+        textAlign: TextAlign.end,
+      ),
+    ),
+    ListTile(
+      title: Text(
+        'پاسخ چهارم',
+        textAlign: TextAlign.end,
+      ),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,33 +71,13 @@ class _QuizPageState extends State<QuizPage> {
             SizedBox(
               height: 30,
             ),
-            ListTile(
-              title: Text(
-                'پاسخ اول',
-                textAlign: TextAlign.end,
-              ),
-              onTap: () {
-                setState(() {
-                  shownQuestionIndex = 1;
-                });
-              },
-            ),
-            ListTile(
-              title: Text(
-                'پاسخ دوم',
-                textAlign: TextAlign.end,
-              ),
-            ),
-            ListTile(
-              title: Text(
-                'پاسخ سوم',
-                textAlign: TextAlign.end,
-              ),
-            ),
-            ListTile(
-              title: Text(
-                'پاسخ چهارم',
-                textAlign: TextAlign.end,
+            ...List.generate(
+              4,
+              (index) => ListTile(
+                title: Text(
+                  getQuestionsList()[shownQuestionIndex].answerList![index],
+                  textAlign: TextAlign.end,
+                ),
               ),
             )
           ],
